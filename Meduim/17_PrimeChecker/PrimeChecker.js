@@ -63,7 +63,7 @@ function PrimeChecker(num) {
 }
 
 //test vectors
-vectors = [910, 98, 598, 4];
+vectors = [910, 98, 598];
 
 //Execute the above test vectors.
 for(var i = 0; i < vectors.length; i++) {
