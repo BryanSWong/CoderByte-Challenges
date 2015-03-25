@@ -12,58 +12,114 @@
  Input = 910    Output = 1
  Input = 98     Output = 1
  Input = 598    Output = 1
- Input =       Output =
+ Input =        Output =
 
  */
 
 function PrimeChecker(num) {
 
-    var test = num.toString().split("");
-    var output =[];
-    var isPrime = 0;
+    var arr = num.toString().split(""); // change to string and breaks it into parts in an array.
     var count = 0;
+    var end = arr.length-1;
+    var output = [];
 
+    //Start with getting the first number in the order
+    for (var j = 0; j < arr.length; j++) {
 
-    /*
-    for (var j = 0; j < test.length; j++) {
+        output.push(arr[j]);
 
-        for (var k = 0; k < test.length; k++) {
+        //add the rest of the numbers to compute.
+        for (var k = 0; k < arr.length; k++) {
 
-            if (test[k + 1] != undefined) {
-                output.push(test[k + 1]);
-            }
+            if (j != k) {
 
-            else {
-                output.push(test[0]);
-            }
-        }
-
-        var check = Math.abs(Number(output.join("")));
-
-        for (var l = 1; l < check - 1; l++) {
-
-            if ((check % l) == 0) {
-                count++;
+                output.push(arr[k]);
             }
         }
-        if (count < 2) {
-            isPrime++;
+
+        var test = Number(output.join("")); //converts and holds the number order to be evaluated.
+
+        while (count < end) {
+
+            var primeTest = primeTime(Number(test));
+
+            if(primeTest == true){
+
+                return 1;
+            }
+
+            else{
+
+                if(output.length < 3){
+
+                }
+
+                else{
+
+                    test = arrange(output);
+                }
+            }
+            output = test.toString().split("");
+            count++;
+        }
+
+        output = []; //resets output
+        count = 0; // resets count.
+    }
+
+    return 0; // if no prime number in any order found.
+}
+
+function arrange(input){
+
+    var first = 1;
+    var arr = [];
+    var hold =[];
+    arr.push(input[0]);
+
+    for(var k = first; k < input.length; k++){
+
+        if(input[k+1] != undefined){
+            arr.push(input[k+1]);
+        }
+
+        else{
+            arr.push(input[first]);
         }
     }
-    */
 
-    if(isPrime > 0){
-        return 1;
+    var num = Number(arr.join(""));
+
+    return num;
+}
+
+function primeTime(num){
+
+    //Number(target);
+
+    var count = 0;
+    var divisor = 1;
+
+    while(divisor <= num){
+        if(num%divisor == 0){
+            count++;
+        }
+
+        divisor++;
     }
 
+    if(count > 2){
+        return false;
+
+    }
     else{
-        return 0;
+        return true;
     }
 
 }
 
 //test vectors
-vectors = [910, 98, 598];
+var vectors = [910, 98, 598, 210, 1234, 222, 12345];
 
 //Execute the above test vectors.
 for(var i = 0; i < vectors.length; i++) {
