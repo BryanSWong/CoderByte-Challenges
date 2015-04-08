@@ -19,34 +19,45 @@ ever be the case: hello44444 world). Each string will also have at least one let
 
 */
 
+function NumberSearch(str) {
 
-function NumberSearch(str){
-/*
-    1.search the string for all the numbers that are separate and not together.
-    2.count all the alpha characters in the string.
-    3 add up all the numbers found and divide by the number of letters.
-    4 return the result of the division and round to nearest whole number.
-    */
-
-    var count; // count for letters.
+    var count = 0; // count for letters.
     var num = []; //holds all the numbers found.
 
-    for(var j = 0; j < str.length; j++){
+    //Loop through the string and compare each character
+    for (var j = 0; j < str.length; j++) {
 
-        if(str.charAt(j)){
+        //get the current character for comparison.
+        var char = str.charAt(j);
 
+        //check if the current character is a number and add to num array if it is.
+        if (isNaN(char) == false) {
+            num.push(Number(char));
+        }
+
+        //check if character is an alphanumeric character and add to the count if it is.
+        if (char.match(/[a-zA-Z]/)) {
+            count++;
         }
     }
 
+    //add up all the numbers in the array to get the sum.
+    var total = num.reduce(function (a, b) {
+        return a + b
+    });
 
+    //divide the total by the total number of alphanumeric characters and round to the nearest number for result.
+    var result = Math.round(total / count);
 
+    // return result.
+    return result;
 }
 
 //test vectors
 var vectors = ["Hello6 9World 2, Nic8e D7ay!", "H3ello9-9", "One Number*1*"];
 
 //Execute the above test vectors.
-for(var i = 0; i < vectors.length; i++) {
+for (var i = 0; i < vectors.length; i++) {
     console.log("Test vector: " + vectors[i]);
     console.log("Output: " + NumberSearch(vectors[i]));
     console.log();
