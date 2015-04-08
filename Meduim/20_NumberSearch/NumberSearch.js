@@ -1,7 +1,7 @@
 /*
 Developer: Bryan Wong
 
-Date: 3--2015
+Date: 4-4-2015
 
 Description:
 Using the JavaScript language, have the function NumberSearch(str) take the str parameter, search for

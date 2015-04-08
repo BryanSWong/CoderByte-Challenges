@@ -1,7 +1,7 @@
 /*
  Developer: Bryan Wong
 
- Date: 3--2015
+ Date: 4-8-2015
 
  Description:
  Using the JavaScript language, have the function TripleDouble(num1,num2) take
@@ -19,9 +19,11 @@
  */
 
 function TripleDouble(num1,num2) {
-
-
-    return num1 + num2;
+    /*
+    1. loop through first number set and find out if there is a triple set of an number in a row.
+    2. loop through the second number set and find out if there is a double set of an number in a row.
+    3. if there is a triple set in num 1 and double set in num 2 return 1 else return 0.
+     */
 
 }
 
