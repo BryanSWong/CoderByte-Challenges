@@ -19,20 +19,61 @@
  */
 
 function TripleDouble(num1,num2) {
-    /*
-    1. loop through first number set and find out if there is a triple set of an number in a row.
-    2. loop through the second number set and find out if there is a double set of an number in a row.
-    3. if there is a triple set in num 1 and double set in num 2 return 1 else return 0.
-     */
 
+    var triple = false; // condition flag for triple digits found.
+    var double = false; // condition flag for double digits found.
+    var part1 = num1.toString(); //converts num1 to string.
+    var part2 = num2.toString(); // converts num2 to string.
+    var tripleNum = ""; //records the number that is a triple found.
+
+    //loops through num1 to find triple digits in a row.
+    for(var j = 0; j < part1.length; j++){
+
+        var num = part1[j]; //holds what is the first number to check.
+        //check if the the next two numbers are the same.
+        if(num == part1[j+1] && num == part1[j+2]){
+            triple = true; // change to true when triple number is found.
+            tripleNum = num; // sets the number to find a double of.
+        }
+    }
+
+    // if no triple was found we can return 0 as first part of conditions were not met.
+    if(triple == false){
+
+        return 0;
+    }
+
+    // checking num2 to see if there is a double of the triple found.
+    for(var k = 0; k < part2.length; k++){
+
+        var num3 = part2[k]; //holds the number to check.
+
+        // if number is equal to the triple digit and checks if the next number is the same.
+        if(num3 == tripleNum && num3 == part2[k+1]){
+
+            double = true; // makes double true.
+        }
+    }
+
+    // if triple was found and double was found.
+    if(triple == double ){
+
+        return 1;
+    }
+
+    // if a double was not found then.
+    else {
+        return 0;
+    }
 }
 
 //test vectors
-var vectors = [[ 451999277, 41177722899], [465555, 5579], [67844, 66237] ];
-
-//Execute the above test vectors.
-for(var i = 0; i < vectors.length; i++) {
-    console.log("Test vector: " + vectors[i]);
-    console.log("Output: " + TripleDouble(vectors[i]));
-    console.log();
-}
+console.log("Test vectors: num1 = 451999277 num2 = 41177722899");
+console.log(TripleDouble(451999277, 41177722899));
+console.log();
+console.log("Test vectors: num1 = 465555 num2 = 5579");
+console.log(TripleDouble(465555, 5579));
+console.log();
+console.log("Test vectors: num1 = 67844 num2 = 66237");
+console.log(TripleDouble(67844, 66237));
+console.log();
