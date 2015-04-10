@@ -19,12 +19,37 @@
 
 function BracketMatcher(str){
 
-    return str;
+    var open = 0; // tracks # of open brackets.
+    var closed = 0; // tracks # of closed brackets.
 
+    for(var j = 0; j < str.length; j++){
+
+        // gets the current character to be evaluated.
+        var char = str[j];
+
+        // checks for open brackets.
+        if(char.match(/[(]/)){
+            open++;
+        }
+
+        // checks for closed brackets.
+        if(char.match(/[)]/)){
+            closed++;
+        }
+    }
+
+    // if open brackets matches closed brackets then return 1.
+    if(open == closed){
+        return 1;
+    }
+    //  else return 0.
+    else{
+        return 0;
+    }
 }
 
 //test vectors
-var vectors = ["(hello (world))", "((hello (world))", "(coder)(byte))", "(c(oder)) b(yte)"];
+var vectors = ["(hello (world))", "((hello (world))", "(coder)(byte))", "(c(oder)) b(yte)", "No Brackets gets 1"];
 
 //Execute the above test vectors.
 for(var i = 0; i < vectors.length; i++) {
