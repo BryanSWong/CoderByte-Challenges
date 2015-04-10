@@ -1,7 +1,7 @@
 /*
  Developer: Bryan Wong
 
- Date: 3--2015
+ Date: 4-9-2015
 
  Description:
  Using the JavaScript language, have the function BracketMatcher(str) take the str parameter
