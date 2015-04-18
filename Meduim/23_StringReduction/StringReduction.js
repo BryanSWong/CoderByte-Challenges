@@ -1,7 +1,7 @@
 /*
  Developer: Bryan Wong
 
- Date: 3--2015
+ Date: 4-10-2015
 
  Description:
  Using the JavaScript language, have the function StringReduction(str) take the str parameter
@@ -18,14 +18,54 @@
  Input = "bcab"     Output = 1
  Input = "abcabc"   Output = 2
  Input = "cccc"     Output = 4
- Input =                                        Output =
- Input =                                        Output =
 
  */
 
 function StringReduction(str){
 
-    return str;
+    var size = str.length; //use to track how many need changes in loop.
+
+    // goes over str making the needed reduction given in the question
+    for(var j = 0; j < size; j++) {
+
+        // finds matches for ab
+        if (str.match(/ab/)) {
+            // matches for ab are reduce to 'c' via .replace() method.
+            str = str.replace("ab", "c");
+        }
+
+        // finds matches for ac
+        if (str.match(/ac/)) {
+            // matches for ac are reduce to 'b' via .replace() method.
+            str = str.replace("ac", "b");
+        }
+
+        // finds matches for ba
+        if (str.match(/ba/)) {
+            // matches for ba are reduce to 'c' via .replace() method.
+            str = str.replace("ba", "c");
+        }
+
+        // finds matches for bc
+        if (str.match(/bc/)) {
+            // matches for bc are reduce to 'a' via .replace() method.
+            str = str.replace("bc", "a");
+        }
+
+        // finds matches for ca
+        if (str.match(/ca/)) {
+            // matches for ca are reduce to 'b' via .replace() method.
+            str = str.replace("ca", "b");
+        }
+
+        // finds matches for cb
+        if (str.match(/cb/)) {
+            // matches for cb are reduce to 'a' via .replace() method.
+            str = str.replace("cb", "a");
+        }
+    }
+    // returns the final length of str
+    return str.length;
 }
 
 //test vectors
