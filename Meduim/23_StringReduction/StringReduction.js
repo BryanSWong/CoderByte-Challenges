@@ -28,42 +28,26 @@ function StringReduction(str){
     // goes over str making the needed reduction given in the question
     for(var j = 0; j < size; j++) {
 
-        // finds matches for ab
-        if (str.match(/ab/)) {
-            // matches for ab are reduce to 'c' via .replace() method.
-            str = str.replace("ab", "c");
+        if (str.match(/a(c|b)/)) {
+
+            str = str.replace( 'ab',"c");
+            str = str.replace( 'ac',"b");
         }
 
-        // finds matches for ac
-        if (str.match(/ac/)) {
-            // matches for ac are reduce to 'b' via .replace() method.
-            str = str.replace("ac", "b");
-        }
+        if (str.match(/b(a|c)/)) {
 
-        // finds matches for ba
-        if (str.match(/ba/)) {
-            // matches for ba are reduce to 'c' via .replace() method.
             str = str.replace("ba", "c");
-        }
-
-        // finds matches for bc
-        if (str.match(/bc/)) {
-            // matches for bc are reduce to 'a' via .replace() method.
             str = str.replace("bc", "a");
         }
 
-        // finds matches for ca
-        if (str.match(/ca/)) {
-            // matches for ca are reduce to 'b' via .replace() method.
-            str = str.replace("ca", "b");
-        }
 
-        // finds matches for cb
-        if (str.match(/cb/)) {
-            // matches for cb are reduce to 'a' via .replace() method.
+        if (str.match(/c(a|b)/)) {
+
+            str = str.replace("ca", "b");
             str = str.replace("cb", "a");
         }
     }
+
     // returns the final length of str
     return str.length;
 }
