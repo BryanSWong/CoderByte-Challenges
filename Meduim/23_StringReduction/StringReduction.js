@@ -28,23 +28,22 @@ function StringReduction(str){
     // goes over str making the needed reduction given in the question
     for(var j = 0; j < size; j++) {
 
-        if (str.match(/a(c|b)/)) {
+        // matches 'ab' or 'ba' and replaces with 'c'
+        if (str.match(/ab|ba/)) {
 
-            str = str.replace( 'ab',"c");
-            str = str.replace( 'ac',"b");
+            str = str.replace( /ab|ba/,"c");
         }
 
-        if (str.match(/b(a|c)/)) {
+        // matches 'bc' or 'cb' and replaces with 'a'
+        if (str.match(/bc|cb/)) {
 
-            str = str.replace("ba", "c");
-            str = str.replace("bc", "a");
+            str = str.replace(/bc|cb/, "a");
         }
 
+        // matches 'ca' or 'ac' and replaces with 'b'
+        if (str.match(/ca|ac/)) {
 
-        if (str.match(/c(a|b)/)) {
-
-            str = str.replace("ca", "b");
-            str = str.replace("cb", "a");
+            str = str.replace(/ca|ac/, "b");
         }
     }
 
