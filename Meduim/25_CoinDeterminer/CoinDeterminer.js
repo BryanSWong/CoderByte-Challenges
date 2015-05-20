@@ -1,7 +1,7 @@
 /*
  Developer: Bryan Wong
 
- Date: 3--2015
+ Date: 5-4-2015
 
  Description:
  Using the JavaScript language, have the function CoinDeterminer(num) take the input, which will be
@@ -26,7 +26,7 @@ function CoinDeterminer(num){
     var lowest = 0; //used for the final lowest coins to get to the target number.
 
     // the first loop starts off with the highest coin value and a coin count.
-    for(var j = coins.length-1; j > 0; j--){
+    for(var j = coins.length-1; j>= 0; j--){
 
          sum = coins[j]; // starting sum.
          count++; // first coin.
@@ -44,6 +44,11 @@ function CoinDeterminer(num){
                 sum -= coins[n]; //subtract last coin value.
                 count--; // subtract coin.
                 n--; // lower coin value to next value.
+
+                // make sure that n does not go lower then 0.
+                if(n = 0){
+                    n = 0;
+                }
             }
 
             // when the sum is equal to num
@@ -64,14 +69,13 @@ function CoinDeterminer(num){
         n = coins.length-1; // resets n
         sum = 0; // resets sum
         count = 0; // resets count
-
     }
 
     return lowest; //returns the lowest number of coins used
 }
 
 //test vectors
-var vectors = [16, 25, 6];
+var vectors = [16, 25, 6, 1, 2, 3, 4, 255];
 
 //Execute the above test vectors.
 for(var i = 0; i < vectors.length; i++) {
