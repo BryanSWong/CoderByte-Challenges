@@ -46,7 +46,7 @@ function CoinDeterminer(num){
                 n--; // lower coin value to next value.
 
                 // make sure that n does not go lower then 0.
-                if(n = 0){
+                if(n < 0){
                     n = 0;
                 }
             }
