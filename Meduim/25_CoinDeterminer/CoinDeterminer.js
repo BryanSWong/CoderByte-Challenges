@@ -46,7 +46,7 @@ function CoinDeterminer(num){
                 n--; // lower coin value to next value.
 
                 // make sure that n does not go lower then 0.
-                if(n < 0){
+                if(n = 0){
                     n = 0;
                 }
             }
@@ -75,11 +75,21 @@ function CoinDeterminer(num){
 }
 
 //test vectors
-var vectors = [16, 25, 6, 1, 2, 3, 4, 255];
+/*
+var vectors = [16, 25, 6];
 
 //Execute the above test vectors.
 for(var i = 0; i < vectors.length; i++) {
     console.log("Test vector: " + vectors[i]);
     console.log("Output: " + CoinDeterminer(vectors[i]));
+    console.log();
+}
+
+*/
+
+for(var i = 1; i <= 255; i++){
+
+    console.log("Test vector: " + i);
+    console.log("Output: " + CoinDeterminer(i));
     console.log();
 }
