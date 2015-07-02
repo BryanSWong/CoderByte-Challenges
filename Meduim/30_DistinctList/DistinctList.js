@@ -47,7 +47,6 @@ function DistinctList(arr) {
     output = count; // output is equal to final count of copies.
 
     return output;
-
 }
 
 //test vectors
