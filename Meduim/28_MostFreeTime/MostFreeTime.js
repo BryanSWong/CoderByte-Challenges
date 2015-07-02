@@ -40,10 +40,6 @@ function MostFreeTime(strArr) {
             end = arr2.shift();
         }
 
-        else{
-            // do nothing
-        }
-
         var temp = countMin(start, end); // temp var for determining the most free time
 
         if(temp > mft){
